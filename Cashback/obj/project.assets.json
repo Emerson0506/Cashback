@@ -88,6 +88,43 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Cashback.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cashback.Domain": "1.0.0",
+          "Cashback.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cashback.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Application.dll": {}
+        }
+      },
+      "Cashback.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Cashback.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Domain.dll": {}
+        }
+      },
+      "Cashback.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cashback.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cashback.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Repository.dll": {}
+        }
       }
     }
   },
@@ -216,31 +253,47 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Cashback.Application/1.0.0": {
+      "type": "project",
+      "path": "../CashBack.Application/Cashback.Application.csproj",
+      "msbuildProject": "../CashBack.Application/Cashback.Application.csproj"
+    },
+    "Cashback.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CashBack.Domain/Cashback.Domain.csproj",
+      "msbuildProject": "../CashBack.Domain/Cashback.Domain.csproj"
+    },
+    "Cashback.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Cashback.Repository/Cashback.Repository.csproj",
+      "msbuildProject": "../Cashback.Repository/Cashback.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Cashback.Application >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\victo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj",
+      "projectUniqueName": "C:\\Users\\victo\\Desktop\\Cashback\\Cashback\\Cashback.csproj",
       "projectName": "Cashback",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\obj\\",
+      "projectPath": "C:\\Users\\victo\\Desktop\\Cashback\\Cashback\\Cashback.csproj",
+      "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\victo\\Desktop\\Cashback\\Cashback\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -249,13 +302,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\victo\\Desktop\\Cashback\\CashBack.Application\\Cashback.Application.csproj": {
+              "projectPath": "C:\\Users\\victo\\Desktop\\Cashback\\CashBack.Application\\Cashback.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -292,7 +348,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
