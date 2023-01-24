@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dto\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CashBack.Domain\Cashback.Domain.csproj" />
     <ProjectReference Include="..\Cashback.Repository\Cashback.Repository.csproj" />
   </ItemGroup>
