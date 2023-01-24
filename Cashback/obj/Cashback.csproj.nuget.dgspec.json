@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj": {}
+    "C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\Cashback.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj": {
+    "C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\Cashback.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\Cashback.csproj",
         "projectName": "Cashback",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\Cashback.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\Cashback.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Cashback\\Cashback\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
