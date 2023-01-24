@@ -1,3 +1,5 @@
+using Cashback.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -8,6 +10,10 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
+
+ServiceConfiguration.Setup(builder.Services);
+
+RepositoryConfiguration.Setup(builder.Services);
 
 var app = builder.Build();
 
