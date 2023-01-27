@@ -1,5 +1,4 @@
 ﻿using Cashback.Domain.Entities;
-using Pizzaria.Repository.Repositories;
 
 namespace Cashback.Repository.Repositories
 {

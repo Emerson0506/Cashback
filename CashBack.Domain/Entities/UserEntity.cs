@@ -1,12 +1,16 @@
-﻿namespace Cashback.Domain.Entities
+﻿using Cashback.Domain.Interfaces;
+
+namespace Cashback.Domain.Entities
 {
-    public class UserEntity : BaseEntity
+    public class UserEntity : BaseEntity, IUser, IListedPeople
     {
+        public List<ProcedimentEntity> Procediments { get; set; } = new();
+        public List<IndicatedEntity> Indicateds { get; set; } = new();
+
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
-        public CashbackEntity Cashback { get; set; }
 
         public UserEntity(string name, string email, string password, string phoneNumber, CashbackEntity cashback)
         {
@@ -15,6 +19,7 @@
             Password = password;
             PhoneNumber = phoneNumber;
             Cashback = cashback;
+
         }
     }
 }

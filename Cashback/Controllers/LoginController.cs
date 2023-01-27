@@ -1,5 +1,5 @@
 ﻿using Cashback.Application.Dto;
-using Cashback.Application.General;
+using Cashback.Application.Factories;
 using Cashback.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

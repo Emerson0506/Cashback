@@ -1,8 +1,8 @@
 ﻿using Cashback.Domain.Entities;
-using Pizzaria.Repository.Interfaces;
+using Cashback.Repository.Interfaces;
 using System.Text.Json;
 
-namespace Pizzaria.Repository.Repositories
+namespace Cashback.Repository.Repositories
 {
     /// <summary>
     /// Base Principal dos repositorios onde efetua a ação escolhida, contendo as funções implementadas da interface <see cref="IBaseRepository{T}"/>
