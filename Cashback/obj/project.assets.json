@@ -88,6 +88,43 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Cashback.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cashback.Domain": "1.0.0",
+          "Cashback.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cashback.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Application.dll": {}
+        }
+      },
+      "Cashback.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Cashback.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Domain.dll": {}
+        }
+      },
+      "Cashback.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cashback.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cashback.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cashback.Repository.dll": {}
+        }
       }
     }
   },
@@ -216,10 +253,26 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Cashback.Application/1.0.0": {
+      "type": "project",
+      "path": "../CashBack.Application/Cashback.Application.csproj",
+      "msbuildProject": "../CashBack.Application/Cashback.Application.csproj"
+    },
+    "Cashback.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CashBack.Domain/Cashback.Domain.csproj",
+      "msbuildProject": "../CashBack.Domain/Cashback.Domain.csproj"
+    },
+    "Cashback.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Cashback.Repository/Cashback.Repository.csproj",
+      "msbuildProject": "../Cashback.Repository/Cashback.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Cashback.Application >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -255,7 +308,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\Projects\\Cashback\\CashBack.Application\\Cashback.Application.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\Projects\\Cashback\\CashBack.Application\\Cashback.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -295,5 +352,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\User\\Desktop\\Projects\\Cashback\\Cashback\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
