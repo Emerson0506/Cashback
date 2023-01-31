@@ -1,9 +1,9 @@
 ﻿using Cashback.Application.Interfaces;
 using Cashback.Application.Services;
 using Cashback.Domain.Entities;
-using Pizzaria.Repository.Interfaces;
+using Cashback.Repository.Interfaces;
 
-namespace Cashback.Application.General
+namespace Cashback.Application.Factories
 {
     public class FactoryServices
     {

@@ -1,8 +1,10 @@
 ﻿using Cashback.Application.Dto;
-using Cashback.Application.General;
+using Cashback.Application.Extensions;
+using Cashback.Application.Factories;
 using Cashback.Application.Interfaces;
 using Cashback.Domain.Entities;
-using Pizzaria.Repository.Interfaces;
+using Cashback.Repository.Interfaces;
+using System.Buffers.Text;
 
 namespace Cashback.Application.Services
 {
@@ -22,9 +24,9 @@ namespace Cashback.Application.Services
             var user = _userRepository.GetAll().Find(x => x.Email == email && x.Password == password);
 
             if (user == null)
-                return Factory.CreateBaseDto(404, "Usuario não encontrado");
+                return BaseDtoExtension.CreateBaseDto(404, "Usuario não encontrado");
 
-            return Factory.CreateBaseDto(200, "Login executado", user.Id);
+            return BaseDtoExtension.CreateBaseDto(200, "Login executado", user.Id);
         }
     }
 }

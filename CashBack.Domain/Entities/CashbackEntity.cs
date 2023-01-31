@@ -1,8 +1,10 @@
-﻿namespace Cashback.Domain.Entities
+﻿using Cashback.Domain.Interfaces;
+
+namespace Cashback.Domain.Entities
 {
-    public class CashbackEntity : BaseEntity
+    public class CashbackEntity : ICashback
     {
-        public decimal ValueAmount { get; set; }
+        public decimal ValueAmount { get; set; } = 2;
 
         public CashbackEntity(decimal valueAmount)
         {

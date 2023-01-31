@@ -7,6 +7,7 @@ namespace Cashback.Configuration
         public static void Setup(IServiceCollection builder)
         {
             builder.AddSingleton<LoginService>();
+            builder.AddSingleton<ProcedimentService>();
         }
     }
 }

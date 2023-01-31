@@ -1,4 +1,4 @@
-﻿namespace Pizzaria.Repository.Interfaces
+﻿namespace Cashback.Repository.Interfaces
 {
     /// <summary>
     /// Contrato básico necessario para todos os repositorios, com as funções de Add, GetAll, GetById, Remove e Update
