@@ -7,7 +7,14 @@ namespace Cashback.Domain.Interfaces
     /// </summary>
     public interface IListedPeople
     {
+        /// <summary>
+        /// Lista dos procedimentos realizados.
+        /// </summary>
         List<ProcedimentEntity> Procediments { get; set; }
+
+        /// <summary>
+        /// Lista das pessoas indicadas.
+        /// </summary>
         List<IndicatedEntity> Indicateds { get; set; }
     }
 }

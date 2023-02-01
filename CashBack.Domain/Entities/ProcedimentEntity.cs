@@ -2,6 +2,9 @@
 
 namespace Cashback.Domain.Entities
 {
+    /// <summary>
+    /// Entidade de procedimentos, implementa <see cref="IProcediment"/>
+    /// </summary>
     public class ProcedimentEntity : IProcediment
     {
         public decimal Value { get; set; }

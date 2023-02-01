@@ -2,6 +2,9 @@
 
 namespace Cashback.Domain.Entities
 {
+    /// <summary>
+    /// Entidade do usuário, implementa <see cref="IUser"/> e <see cref="IListedPeople"/>
+    /// </summary>
     public class UserEntity : BaseEntity, IUser, IListedPeople
     {
         public List<ProcedimentEntity> Procediments { get; set; } = new();

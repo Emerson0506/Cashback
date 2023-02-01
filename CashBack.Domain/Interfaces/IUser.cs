@@ -2,13 +2,29 @@
 
 namespace Cashback.Domain.Interfaces
 {
-    public interface IUser
+    /// <summary>
+    /// Contém informações do usuário.
+    /// </summary>
+    public interface IUser : IListedPeople
     {
+        /// <summary>
+        /// Nome do usuário.
+        /// </summary>
         string Name { get; set; }
+
+        /// <summary>
+        /// Email do usuário.
+        /// </summary>
         string Email { get; set; }
+
+        /// <summary>
+        /// Senha do usuário.
+        /// </summary>
         string Password { get; set; }
+
+        /// <summary>
+        /// Telefone/celular do usuário.
+        /// </summary>
         string PhoneNumber { get; set; }
-        List<ProcedimentEntity> Procediments { get; }
-        List<IndicatedEntity> Indicateds { get; }
     }
 }

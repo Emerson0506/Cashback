@@ -2,9 +2,12 @@
 
 namespace Cashback.Domain.Entities
 {
+    /// <summary>
+    /// Entidade de Indicados, implementa <see cref="IIndicated"/> e <see cref="IListedPeople"/>
+    /// </summary>
     public class IndicatedEntity : BaseEntity, IIndicated, IListedPeople
     {
-        public string IndicatedName { get; set; }
+        public string Name { get; set; }
         public string CPF { get; set; }
         public decimal Credit { get; set; }
         public List<ProcedimentEntity> Procediments { get; set; } = new();
@@ -12,7 +15,7 @@ namespace Cashback.Domain.Entities
 
         public IndicatedEntity(string name, string cPF, decimal credit)
         {
-            IndicatedName = name;
+            Name = name;
             CPF = cPF;
             Credit = credit;
         }
