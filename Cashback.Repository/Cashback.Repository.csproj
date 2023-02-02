@@ -14,4 +14,6 @@
     <ProjectReference Include="..\CashBack.Domain\Cashback.Domain.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties database_4indicates_1json__JsonSchema="[" /></VisualStudio></ProjectExtensions>
+
 </Project>

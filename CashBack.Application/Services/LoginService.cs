@@ -33,9 +33,9 @@ namespace Cashback.Application.Services
             var user = _userRepository.GetAll().Find(x => x.Email == email && x.Password == password);
 
             if (user == null)
-                return BaseDtoExtension.CreateBaseDto(404, "Usuario não encontrado");
+                return BaseDtoExtension.NotFound();
 
-            return BaseDtoExtension.CreateBaseDto(200, "Login executado", user.Id);
+            return BaseDtoExtension.Create(200, "Login executado", user.Id);
         }
     }
 }
