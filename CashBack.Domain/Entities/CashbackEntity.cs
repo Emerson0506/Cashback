@@ -13,5 +13,9 @@ namespace Cashback.Domain.Entities
         {
             ValueAmount = valueAmount;
         }
+        public CashbackEntity()
+        {
+
+        }
     }
 }

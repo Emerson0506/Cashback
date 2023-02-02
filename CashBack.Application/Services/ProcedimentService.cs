@@ -36,7 +36,9 @@ namespace Cashback.Application.Services
 
             user.Procediments.Add(procedimentEntity);
 
-            return BaseDtoExtension.CreateBaseDto(200, $"PROCEDIMENTO {procediment.Name} SALVO PARA O PACIENTE {procediment.NamePacient}");
+            user.Cashback.ValueAmount = 0;
+
+            return BaseDtoExtension.CreateBaseDto(200, $"PROCEDIMENTO {procediment.Name} REGISTRADO PARA O PACIENTE {procediment.NamePacient}");
         }
     }
 }

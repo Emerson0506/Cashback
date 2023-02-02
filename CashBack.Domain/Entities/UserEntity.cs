@@ -14,14 +14,14 @@ namespace Cashback.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
-
-        public UserEntity(string name, string email, string password, string phoneNumber, CashbackEntity cashback)
+        public IBankAccount Account { get; set; } = new BankAccountEntity();
+        public ICashback Cashback { get; set; } = new CashbackEntity();
+        public UserEntity(string name, string email, string password, string phoneNumber)
         {
             Name = name;
             Email = email;
             Password = password;
             PhoneNumber = phoneNumber;
-            Cashback = cashback;
 
         }
     }

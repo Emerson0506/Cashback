@@ -1,5 +1,6 @@
 ﻿using Cashback.Application.Dto;
 using Cashback.Domain.Entities;
+using System.Xml.Linq;
 
 namespace Cashback.Application.Factories
 {
@@ -17,9 +18,6 @@ namespace Cashback.Application.Factories
         /// <param name="phoneNumber"></param>
         /// <param name="cashback"></param>
         /// <returns>Retornando <see cref="UserEntity"/> com os parâmetros fornecidos.</returns>
-        public static UserEntity CreateUserEntity(string name, string email, string password, string phoneNumber, CashbackEntity cashback)
-        {
-            return new UserEntity(name, email, password, phoneNumber, cashback);
-        }
+        public static UserEntity CreateUserEntity(string name, string email, string password, string phoneNumber) => new UserEntity(name, email, password, phoneNumber);
     }
 }
