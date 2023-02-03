@@ -19,26 +19,30 @@ namespace Cashback.Application.Services
         public BaseDto Register(IProcediment procediment, Guid id)
         {
             if (string.IsNullOrEmpty(procediment.CPFClient) || procediment.CPFClient.Length > 11)
-                return BaseDtoExtension.CreateBaseDto(406, "Valor Inválido");
+                return BaseDtoExtension.InvalidValue();
 
             if (string.IsNullOrEmpty(procediment.Value.ToString()))
-                return BaseDtoExtension.CreateBaseDto(406, "Valor Inválido");
+                return BaseDtoExtension.InvalidValue();
 
             if (string.IsNullOrEmpty(procediment.Name))
-                return BaseDtoExtension.CreateBaseDto(406, "Procedimento inválido");
+                return BaseDtoExtension.Error(406, "Procedimento inválido");
 
-            var procedimentEntity = new ProcedimentEntity(procediment.Value, procediment.Name, procediment.CPFClient, procediment.NamePacient);
+            var procedimentEntity = new ProcedimentEntity(procediment.Value, procediment.Name, 
+                procediment.CPFClient, procediment.NamePacient);
 
             var user = _userRepository.GetById(id);
 
             if (user == null)
-                return BaseDtoExtension.CreateBaseDto(404, "Usuario não encontrado");
+                return BaseDtoExtension.NotFound();
 
             user.Procediments.Add(procedimentEntity);
 
-            user.Cashback.ValueAmount = 0;
+            var cashAmount = CalculateService.CalculateCashback(procediment.Value);
 
-            return BaseDtoExtension.CreateBaseDto(200, $"PROCEDIMENTO {procediment.Name} REGISTRADO PARA O PACIENTE {procediment.NamePacient}");
+            user.Account.Balance += cashAmount;
+
+            return BaseDtoExtension.Create(200, $"PROCEDIMENTO {procediment.Name} REGISTRADO PARA O PACIENTE " +
+                $"{procediment.NamePacient} NO VALOR DE {procediment.Value}");
         }
     }
 }
