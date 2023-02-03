@@ -16,15 +16,19 @@ namespace Cashback.Application.Factories
         /// Inicializa a classe <see cref="FactoryRepositories"/>
         /// </summary>
         /// <returns>Retornando <see cref="FactoryRepositories"/></returns>
-        public static FactoryRepositories Instance()
-        {
-            return new FactoryRepositories();
-        }
+        public static FactoryRepositories Instance() => new FactoryRepositories();
 
+        /// <summary>
+        /// Inicializa a classe <see cref="UserRepository"/>
+        /// </summary>
+        /// <returns>Retorna o contrato implementado por <see cref="UserRepository"/></returns>
+        public IBaseRepository<UserEntity> CreateUserRepository() => new UserRepository();
 
-        public IBaseRepository<UserEntity> CreateUserRepository()
-        {
-            return new UserRepository();
-        }
+        /// <summary>
+        /// Inicializa a classe <see cref="ClientRepository"/>
+        /// </summary>
+        /// <returns>Retorna o contrato implementado por <see cref="ClientRepository"/></returns>
+        public IBaseRepository<ClientEntity> CreateClientRepository() => new ClientRepository();
+
     }
 }

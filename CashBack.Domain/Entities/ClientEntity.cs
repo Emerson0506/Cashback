@@ -7,16 +7,18 @@ namespace Cashback.Domain.Entities
     /// </summary>
     public class ClientEntity : BaseEntity, IClient, IListedPeople
     {
-        public BankAccountEntity Account { get; set; }
+        public BankAccountEntity Account { get; set; } = new();
         public List<ProcedimentEntity> Procediments { get; set; } = new();
         public List<IndicatedEntity> Indicateds { get ; set; } = new();
+        public string Name { get ; set; }
+        public string CPF { get ; set; }
+        public string Email { get ; set; }
 
-        public ClientEntity(BankAccountEntity account, List<ProcedimentEntity> procediments, List<IndicatedEntity> indicateds, CashbackEntity cashback)
+        public ClientEntity(string name, string cPF, string email)
         {
-            Account = account;
-            Procediments = procediments;
-            Indicateds = indicateds;
-            Cashback = cashback;
+            Name = name;
+            CPF = cPF;
+            Email = email;
         }
     }
 }

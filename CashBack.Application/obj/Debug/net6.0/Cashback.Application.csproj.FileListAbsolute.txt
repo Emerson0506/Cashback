@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Projects\Cashback\CashBack.Application\obj\Debug\net6.0\Cashback.Application.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Projects\Cashback\CashBack.Application\obj\Debug\net6.0\Cashback.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Projects\Cashback\CashBack.Application\obj\Debug\net6.0\Cashback.Application.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Projects\Cashback\CashBack.Application\obj\Debug\net6.0\Cashback.Application.AssemblyInfo.cs
+C:\Users\User\Desktop\Projects\Cashback\CashBack.Application\obj\Debug\net6.0\Cashback.Application.csproj.CoreCompileInputs.cache
