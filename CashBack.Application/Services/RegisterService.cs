@@ -2,9 +2,7 @@
 using Cashback.Application.Extensions;
 using Cashback.Application.Factories;
 using Cashback.Domain.Entities;
-using Cashback.Domain.Interfaces;
 using Cashback.Repository.Interfaces;
-using Cashback.Repository.Repositories;
 
 namespace Cashback.Application.Services
 {
@@ -14,6 +12,7 @@ namespace Cashback.Application.Services
     public class RegisterService 
     {
         private readonly IBaseRepository<UserEntity> _userRepository = FactoryRepositories.Instance().CreateUserRepository();
+
         private readonly IBaseRepository<ClientEntity> _clientRepository = FactoryRepositories.Instance().CreateClientRepository();
 
         /// <summary>
@@ -54,7 +53,14 @@ namespace Cashback.Application.Services
             return BaseDtoExtension.Sucess();
         }
 
-        public BaseDto User(string name, string email, string cpf)
+        /// <summary>
+        /// Responsável pelo registro do cliente.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="cpf"></param>
+        /// <returns>Retorna <see cref="BaseDto"/> em caso de sucesso ou falha.</returns>
+        public BaseDto Client(string name, string email, string cpf)
         {
             if (string.IsNullOrEmpty(name))
                 return BaseDtoExtension.InvalidValue("Nome Inválido");
@@ -68,9 +74,9 @@ namespace Cashback.Application.Services
             if(cpf.Length < 11)
                 return BaseDtoExtension.InvalidValue("CPF Inválido");
 
-            UserEntity userEntity = Factory.CreateClientEntity(name, email);
+            ClientEntity clientEntity = Factory.CreateClientEntity(name, cpf, email);
 
-            _userRepository.Add(userEntity);
+            _clientRepository.Add(clientEntity);
 
             return BaseDtoExtension.Sucess();
         }

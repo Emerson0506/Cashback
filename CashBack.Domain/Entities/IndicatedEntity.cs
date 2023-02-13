@@ -12,6 +12,7 @@ namespace Cashback.Domain.Entities
         public decimal Credit { get; set; }
         public List<ProcedimentEntity> Procediments { get; set; } = new();
         public List<IndicatedEntity> Indicateds { get; set; } = new();
+        public string IndicatorName { get ; set ; }
 
         public IndicatedEntity(string name, string cPF, decimal credit)
         {
