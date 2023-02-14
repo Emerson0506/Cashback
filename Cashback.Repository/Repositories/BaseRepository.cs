@@ -16,7 +16,7 @@ namespace Cashback.Repository.Repositories
 
         public BaseRepository(string pathFile)
         {
-            _pathFile = $@"{Directory.GetCurrentDirectory()}..\..\..\Cashback\Cashback.Repository\DataBase\{pathFile}.json";
+            _pathFile = $@"{Directory.GetCurrentDirectory()}..\..\..\..\..\..\Cashback\Cashback.Repository\DataBase\{pathFile}.json";
         }
 
         public BaseRepository()
