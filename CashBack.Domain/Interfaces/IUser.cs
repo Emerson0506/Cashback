@@ -1,6 +1,4 @@
-﻿using Cashback.Domain.Entities;
-
-namespace Cashback.Domain.Interfaces
+﻿namespace Cashback.Domain.Interfaces
 {
     /// <summary>
     /// Contém informações do usuário.

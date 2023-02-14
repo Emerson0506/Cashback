@@ -1,10 +1,8 @@
 ﻿using Cashback.Application.Dto;
 using Cashback.Application.Extensions;
-using Cashback.Application.Factories;
 using Cashback.Application.Interfaces;
 using Cashback.Domain.Entities;
 using Cashback.Repository.Interfaces;
-using System.Buffers.Text;
 
 namespace Cashback.Application.Services
 {
@@ -16,11 +14,12 @@ namespace Cashback.Application.Services
     {
         private readonly IBaseRepository<UserEntity> _userRepository;
 
-        private readonly IFactoryRepositories _factoryRepositories = FactoryRepositories.Instance();
-        public LoginService()
+        public LoginService(IBaseRepository<UserEntity> userRepository)
         {
-            _userRepository = _factoryRepositories.CreateUserRepository();
+            _userRepository = userRepository;
         }
+
+
 
         /// <summary>
         /// Efetua o login do usuário com os parâmetros fornecidos.

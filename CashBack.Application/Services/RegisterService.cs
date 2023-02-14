@@ -9,11 +9,19 @@ namespace Cashback.Application.Services
     /// <summary>
     /// Responsável pelos registros do usuário e do cliente.
     /// </summary>
-    public class RegisterService 
+    public class RegisterService
     {
-        private readonly IBaseRepository<UserEntity> _userRepository = FactoryRepositories.Instance().CreateUserRepository();
+        private readonly IBaseRepository<UserEntity> _userRepository;
 
-        private readonly IBaseRepository<ClientEntity> _clientRepository = FactoryRepositories.Instance().CreateClientRepository();
+        private readonly IBaseRepository<ClientEntity> _clientRepository;
+
+        public RegisterService(IBaseRepository<UserEntity> userRepository, IBaseRepository<ClientEntity> clientRepository)
+        {
+            _userRepository = userRepository;
+            _clientRepository = clientRepository;
+        }
+
+
 
         /// <summary>
         /// Responsável pelo registro do usuário.
@@ -33,20 +41,20 @@ namespace Cashback.Application.Services
 
             if (!email.Contains("@") || !email.ToUpper().Contains(".COM"))
                 return BaseDtoExtension.InvalidValue("Email Inválido");
-            
+
             if (string.IsNullOrEmpty(password))
                 return BaseDtoExtension.InvalidValue("Digite uma senha!");
 
-            if(password.Length < 3)
+            if (password.Length < 3)
                 return BaseDtoExtension.InvalidValue("Digite uma senha segura!");
 
             if (string.IsNullOrEmpty(phoneNumber))
                 return BaseDtoExtension.InvalidValue("Digite um telefone para contato.");
 
-            if(phoneNumber.Length < 11)
+            if (phoneNumber.Length < 11)
                 return BaseDtoExtension.InvalidValue("Digite um telefone válido para contato.");
 
-            UserEntity userEntity = Factory.CreateUserEntity(name, email, password, phoneNumber); 
+            UserEntity userEntity = Factory.CreateUserEntity(name, email, password, phoneNumber);
 
             _userRepository.Add(userEntity);
 
@@ -71,7 +79,7 @@ namespace Cashback.Application.Services
             if (!email.Contains("@") || !email.ToUpper().Contains(".COM"))
                 return BaseDtoExtension.InvalidValue("Email Inválido");
 
-            if(cpf.Length < 11)
+            if (cpf.Length < 11)
                 return BaseDtoExtension.InvalidValue("CPF Inválido");
 
             ClientEntity clientEntity = Factory.CreateClientEntity(name, cpf, email);

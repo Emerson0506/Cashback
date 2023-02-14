@@ -1,6 +1,5 @@
 ﻿using Cashback.Application.Dto;
 using Cashback.Application.Extensions;
-using Cashback.Application.Factories;
 using Cashback.Domain.Entities;
 using Cashback.Domain.Interfaces;
 using Cashback.Repository.Interfaces;
@@ -16,10 +15,13 @@ namespace Cashback.Application.Services
         private readonly IBaseRepository<IndicatedEntity> _indicatesRepository;
         private IUser _user;
 
-        public IndicateService()
+        public IndicateService(IBaseRepository<UserEntity> userRepository, IBaseRepository<IndicatedEntity> indicatesRepository)
         {
-            _userRepository = FactoryRepositories.Instance().CreateUserRepository();
+            _userRepository = userRepository;
+            _indicatesRepository = indicatesRepository;
         }
+
+
 
         /// <summary>
         /// Efetua a indicação das pessoas fornecidas na lista para o usuario indicado com o parâmetro <paramref name="userID"/>

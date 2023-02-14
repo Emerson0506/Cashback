@@ -1,6 +1,5 @@
 ﻿using Cashback.Application.Dto;
 using Cashback.Application.Extensions;
-using Cashback.Application.Factories;
 using Cashback.Domain.Entities;
 using Cashback.Domain.Interfaces;
 using Cashback.Repository.Interfaces;
@@ -11,9 +10,9 @@ namespace Cashback.Application.Services
     {
         private readonly IBaseRepository<UserEntity> _userRepository;
 
-        public ProcedimentService()
+        public ProcedimentService(IBaseRepository<UserEntity> userRepository)
         {
-            _userRepository = FactoryRepositories.Instance().CreateUserRepository();
+            _userRepository = userRepository;
         }
 
         public BaseDto Register(IProcediment procediment, Guid id)
@@ -27,7 +26,7 @@ namespace Cashback.Application.Services
             if (string.IsNullOrEmpty(procediment.Name))
                 return BaseDtoExtension.Error(406, "Procedimento inválido");
 
-            var procedimentEntity = new ProcedimentEntity(procediment.Value, procediment.Name, 
+            var procedimentEntity = new ProcedimentEntity(procediment.Value, procediment.Name,
                 procediment.CPFClient, procediment.NamePacient);
 
             var user = _userRepository.GetById(id);
