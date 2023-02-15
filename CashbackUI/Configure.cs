@@ -8,6 +8,7 @@ namespace CashbackUI
         public void InjectForm(IServiceCollection services)
         {
             services.AddTransient<MainForm>();
+            services.AddTransient<RegisterForm>();
         }
     }
 }

@@ -33,6 +33,7 @@
             this.inputEmailText = new System.Windows.Forms.TextBox();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.createAccountBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoginBtn
@@ -49,14 +50,14 @@
             // 
             this.inputPasswordText.Location = new System.Drawing.Point(275, 238);
             this.inputPasswordText.Name = "inputPasswordText";
-            this.inputPasswordText.Size = new System.Drawing.Size(235, 33);
+            this.inputPasswordText.Size = new System.Drawing.Size(235, 39);
             this.inputPasswordText.TabIndex = 7;
             // 
             // inputEmailText
             // 
             this.inputEmailText.Location = new System.Drawing.Point(275, 137);
             this.inputEmailText.Name = "inputEmailText";
-            this.inputEmailText.Size = new System.Drawing.Size(235, 33);
+            this.inputEmailText.Size = new System.Drawing.Size(235, 39);
             this.inputEmailText.TabIndex = 6;
             // 
             // EmailLabel
@@ -64,7 +65,7 @@
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Location = new System.Drawing.Point(189, 140);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(58, 25);
+            this.EmailLabel.Size = new System.Drawing.Size(71, 32);
             this.EmailLabel.TabIndex = 9;
             this.EmailLabel.Text = "Email";
             // 
@@ -73,15 +74,27 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Location = new System.Drawing.Point(183, 241);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(64, 25);
+            this.passwordLabel.Size = new System.Drawing.Size(80, 32);
             this.passwordLabel.TabIndex = 10;
             this.passwordLabel.Text = "Senha";
             // 
+            // createAccountBtn
+            // 
+            this.createAccountBtn.Location = new System.Drawing.Point(301, 380);
+            this.createAccountBtn.Name = "createAccountBtn";
+            this.createAccountBtn.Size = new System.Drawing.Size(169, 48);
+            this.createAccountBtn.TabIndex = 11;
+            this.createAccountBtn.Text = "Criar Conta";
+            this.createAccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.createAccountBtn.UseVisualStyleBackColor = true;
+            this.createAccountBtn.Click += new System.EventHandler(this.createAccountBtn_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.createAccountBtn);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.LoginBtn);
@@ -103,5 +116,6 @@
         private TextBox inputEmailText;
         private Label EmailLabel;
         private Label passwordLabel;
+        private Button createAccountBtn;
     }
 }

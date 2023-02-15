@@ -11,6 +11,7 @@ namespace CashbackUI
             Setup setup = new(new Configure());
 
             var host = setup.CreateHostBuilder().Build();
+            
 
             ApplicationConfiguration.Initialize();
             Application.Run(host.Services.GetRequiredService<MainForm>());
