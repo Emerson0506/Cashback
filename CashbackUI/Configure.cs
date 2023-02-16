@@ -3,10 +3,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CashbackUI
 {
-    internal class Configure : IConfiguration
+    public class Configure : IConfiguration
     {
         public void InjectForm(IServiceCollection services)
         {
+            services.AddTransient<IConfiguration, Configure>();
+
             services.AddTransient<MainForm>();
             services.AddTransient<RegisterForm>();
         }
