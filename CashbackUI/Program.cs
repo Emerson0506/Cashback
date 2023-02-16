@@ -8,14 +8,12 @@ namespace CashbackUI
         [STAThread]
         static void Main()
         {
-            Setup setup = new(new Configure());
+            IConfiguration configuration  = new Configure();
 
-            var host = setup.CreateHostBuilder().Build();
-            
+            var provider = new Provider(configuration);
 
             ApplicationConfiguration.Initialize();
-            Application.Run(host.Services.GetRequiredService<MainForm>());
+            Application.Run(provider.Hosting.Services.GetRequiredService<MainForm>());
         }
-
     }
 }

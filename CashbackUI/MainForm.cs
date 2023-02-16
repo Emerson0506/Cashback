@@ -1,14 +1,18 @@
-﻿using Cashback.Application.Interfaces;
+﻿using Cashback.Application;
+using Cashback.Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CashbackUI
 {
     public partial class MainForm : Form
     {
         private readonly ILogin _login;
+        private readonly IProvide _provider;
 
-        public MainForm(ILogin login)
+        public MainForm(ILogin login, IProvide provider)
         {
             _login = login;
+            _provider = provider;
             InitializeComponent();
         }
 
@@ -26,7 +30,7 @@ namespace CashbackUI
 
         private void createAccountBtn_Click(object sender, EventArgs e)
         {
-
+            _provider.Hosting.Services.GetRequiredService<RegisterForm>().Show();
         }
     }
 }

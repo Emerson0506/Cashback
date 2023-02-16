@@ -4,22 +4,22 @@ using Cashback.Domain.Entities;
 using Cashback.Repository.Interfaces;
 using Cashback.Repository.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace Cashback.Application
 {
-    public class Setup
+    public class Setup : ISetup
     {
         private readonly IConfiguration _config;
+
         public Setup(IConfiguration configuration)
         {
             _config = configuration;
         }
 
-        public IServiceProvider ServiceProvider { get; private set; }
-
         public void Inject(IServiceCollection services)
         {
+            services.AddTransient<IProvide, Provider>();
+
             services.AddTransient<IBaseRepository<UserEntity>, UserRepository>();
             services.AddTransient<IBaseRepository<ClientEntity>, ClientRepository>();
             services.AddTransient<IBaseRepository<IndicatedEntity>, IndicatedRepository>();
@@ -27,11 +27,6 @@ namespace Cashback.Application
             services.AddTransient<RegisterService>();
 
             _config.InjectForm(services);
-        }
-
-        public IHostBuilder CreateHostBuilder()
-        {
-            return Host.CreateDefaultBuilder().ConfigureServices((context, services) => { Inject(services); });
         }
     }
 }
