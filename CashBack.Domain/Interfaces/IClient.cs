@@ -20,8 +20,8 @@ namespace Cashback.Domain.Interfaces
         /// </summary>
         public string CPF { get; set; }
         /// <summary>
-        /// Email do cliente.
+        /// Telefone do cliente.
         /// </summary>
-        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

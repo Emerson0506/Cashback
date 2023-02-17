@@ -9,6 +9,7 @@ namespace Cashback.Domain.Entities
     {
         public List<ProcedimentEntity> Procediments { get; set; } = new();
         public List<IndicatedEntity> Indicateds { get; set; } = new();
+        public List<ClientEntity> Clients { get; set; } = new();
 
         public string Name { get; set; }
         public string Email { get; set; }

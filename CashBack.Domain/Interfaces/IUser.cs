@@ -1,10 +1,14 @@
-﻿namespace Cashback.Domain.Interfaces
+﻿using Cashback.Domain.Entities;
+
+namespace Cashback.Domain.Interfaces
 {
     /// <summary>
     /// Contém informações do usuário.
     /// </summary>
     public interface IUser : IListedPeople
     {
+        public List<ClientEntity> Clients { get; set; }
+
         /// <summary>
         /// Nome do usuário.
         /// </summary>

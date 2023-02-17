@@ -2,7 +2,9 @@
 using Cashback.Application.Extensions;
 using Cashback.Application.Factories;
 using Cashback.Domain.Entities;
+using Cashback.Domain.Interfaces;
 using Cashback.Repository.Interfaces;
+using Cashback.Repository.Repositories;
 
 namespace Cashback.Application.Services
 {
@@ -12,16 +14,10 @@ namespace Cashback.Application.Services
     public class RegisterService
     {
         private readonly IBaseRepository<UserEntity> _userRepository;
-
-        private readonly IBaseRepository<ClientEntity> _clientRepository;
-
-        public RegisterService(IBaseRepository<UserEntity> userRepository, IBaseRepository<ClientEntity> clientRepository)
+        public RegisterService(IBaseRepository<UserEntity> userRepository)
         {
             _userRepository = userRepository;
-            _clientRepository = clientRepository;
         }
-
-
 
         /// <summary>
         /// Responsável pelo registro do usuário.
@@ -65,26 +61,26 @@ namespace Cashback.Application.Services
         /// Responsável pelo registro do cliente.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="email"></param>
+        /// <param name="user"></param>
         /// <param name="cpf"></param>
+        /// <param name="phoneNumber"></param>
         /// <returns>Retorna <see cref="BaseDto"/> em caso de sucesso ou falha.</returns>
-        public BaseDto Client(string name, string email, string cpf)
+        public BaseDto Client(string name, string phoneNumber, string cpf, UserEntity user)
         {
             if (string.IsNullOrEmpty(name))
                 return BaseDtoExtension.InvalidValue("Nome Inválido");
 
-            if (string.IsNullOrEmpty(email))
-                return BaseDtoExtension.InvalidValue("Email Inválido");
-
-            if (!email.Contains("@") || !email.ToUpper().Contains(".COM"))
-                return BaseDtoExtension.InvalidValue("Email Inválido");
+            if (string.IsNullOrEmpty(phoneNumber))
+                return BaseDtoExtension.InvalidValue("Telefone Inválido");
 
             if (cpf.Length < 11)
                 return BaseDtoExtension.InvalidValue("CPF Inválido");
 
-            ClientEntity clientEntity = Factory.CreateClientEntity(name, cpf, email);
+            ClientEntity clientEntity = Factory.CreateClientEntity(name, cpf, phoneNumber);
 
-            _clientRepository.Add(clientEntity);
+            user.Clients.Add(clientEntity);
+
+            _userRepository.Update(user.Id , user);
 
             return BaseDtoExtension.Sucess();
         }

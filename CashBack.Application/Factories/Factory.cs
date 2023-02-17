@@ -18,6 +18,6 @@ namespace Cashback.Application.Factories
         /// <returns>Retornando <see cref="UserEntity"/> com os parâmetros fornecidos.</returns>
         public static UserEntity CreateUserEntity(string name, string email, string password, string phoneNumber) => new UserEntity(name, email, password, phoneNumber);
 
-        public static ClientEntity CreateClientEntity(string name, string cpf, string email) => new ClientEntity(name, cpf, email);
+        public static ClientEntity CreateClientEntity(string name, string cpf, string phoneNumber) => new ClientEntity(name, cpf, phoneNumber);
     }
 }
