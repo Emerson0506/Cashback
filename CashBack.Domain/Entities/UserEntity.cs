@@ -19,6 +19,7 @@ namespace Cashback.Domain.Entities
         public ICashback Cashback { get; set; } = new CashbackEntity();
         public UserEntity(string name, string email, string password, string phoneNumber)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Email = email;
             Password = password;

@@ -5,6 +5,7 @@ using Cashback.Domain.Entities;
 using Cashback.Domain.Interfaces;
 using Cashback.Repository.Interfaces;
 using Cashback.Repository.Repositories;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Cashback.Application.Services
 {
@@ -80,11 +81,33 @@ namespace Cashback.Application.Services
 
             user.Clients.Add(clientEntity);
 
-            _userRepository.Update(user.Id , user);
+            _userRepository.Update(user.Id, user);
 
             return BaseDtoExtension.Sucess();
         }
 
+        public BaseDto ClientWithoutProcediment(List<IndicatedEntity> indicateds, UserEntity user)
+        {
+            var toAdd = new List<IndicatedEntity>();
 
+            foreach (var person in indicateds)
+            {
+                var result = user.Indicateds.Find(x => x.CPF == person.CPF);
+
+                if (result == null)
+                {
+                    toAdd.Add(result);
+
+                    var indicator = user.Clients.Find(x => x.Name == person.IndicatorName); // filtrar caso nulo.
+
+                    indicator.Indicateds.Add(person);
+
+                    user.Clients.Remove(indicator);
+                    user.Clients.Add(indicator);
+
+                }
+            }
+            user.Indicateds.AddRange(toAdd);
+        }
     }
 }
