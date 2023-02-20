@@ -6,7 +6,7 @@
     public interface IProcediment
     {
         /// <summary>
-        /// CPF do cliente.
+        /// CPF do paciente.
         /// </summary>
         string CPFClient { get; set; }
 
@@ -24,5 +24,10 @@
         /// Valor do procedimento.
         /// </summary>
         decimal Value { get; set; }
+        /// <summary>
+        /// Telefone do paciente
+        /// </summary>
+        string PhoneNumber { get; set; }
+        IClient Client { get; set; }
     }
 }

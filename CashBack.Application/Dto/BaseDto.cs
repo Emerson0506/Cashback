@@ -7,11 +7,12 @@
         public object _Data { get; set; }
         public bool _Condition { get; set; }
 
-        public BaseDto(int statusCode, string message, object data)
+        public BaseDto(int statusCode, string message, object data, bool condition)
         {
             _StatusCode = statusCode;
             _Message = message;
             _Data = data;
+            _Condition = condition;
         }
 
         public BaseDto(int statusCode, string message, bool condition)

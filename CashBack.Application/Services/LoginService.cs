@@ -34,7 +34,7 @@ namespace Cashback.Application.Services
             if (user == null)
                 return BaseDtoExtension.NotFound();
 
-            return BaseDtoExtension.Create(200, "Login executado", user.Id);
+            return BaseDtoExtension.Create(200, "Login executado", true, user.Id);
         }
     }
 }
