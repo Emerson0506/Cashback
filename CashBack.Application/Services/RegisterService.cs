@@ -86,28 +86,30 @@ namespace Cashback.Application.Services
             return BaseDtoExtension.Sucess();
         }
 
-        public BaseDto ClientWithoutProcediment(List<IndicatedEntity> indicateds, UserEntity user)
+        public BaseDto ClientWithoutProcediment(IndicatedEntity indicated, UserEntity user)
         {
-            var toAdd = new List<IndicatedEntity>();
+            var isIndicated = user.Indicateds.Find(x => x.CPF == indicated.CPF);
+            var indicatorName = "";
 
-            foreach (var person in indicateds)
+            if (isIndicated == null)
             {
-                var result = user.Indicateds.Find(x => x.CPF == person.CPF);
+                var indicator = user.Clients.Find(x => x.Name == indicated.IndicatorName);
 
-                if (result == null)
-                {
-                    toAdd.Add(result);
+                if (indicator == null)
+                    return BaseDtoExtension.NotFound("indicador");
 
-                    var indicator = user.Clients.Find(x => x.Name == person.IndicatorName); // filtrar caso nulo.
+                indicatorName = indicator.Name;
 
-                    indicator.Indicateds.Add(person);
+                indicator.Indicateds.Add(indicated);
 
-                    user.Clients.Remove(indicator);
-                    user.Clients.Add(indicator);
+                user.Indicateds.Add(indicated);
 
-                }
+                user.Clients.Remove(indicator);
+
+                user.Clients.Add(indicator);
+
             }
-            user.Indicateds.AddRange(toAdd);
+            return BaseDtoExtension.Sucess($"Cliente {indicated.Name} cadastrado e dado crédito a {indicatorName}");
         }
     }
 }
