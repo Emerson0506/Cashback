@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cashback.Repository", "Cash
 		{7DF66E50-CC4F-42BA-93AE-6497E495866F} = {7DF66E50-CC4F-42BA-93AE-6497E495866F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashbackUI", "CashbackUI\CashbackUI.csproj", "{11107E38-C602-4ECA-8D9C-65EA2A0BA4A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashbackUI", "CashbackUI\CashbackUI.csproj", "{11107E38-C602-4ECA-8D9C-65EA2A0BA4A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casback.Tests", "Casback.Tests\Casback.Tests.csproj", "{BEE8A29F-5EEF-4C6A-9BC6-02F70A249849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{11107E38-C602-4ECA-8D9C-65EA2A0BA4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11107E38-C602-4ECA-8D9C-65EA2A0BA4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11107E38-C602-4ECA-8D9C-65EA2A0BA4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE8A29F-5EEF-4C6A-9BC6-02F70A249849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE8A29F-5EEF-4C6A-9BC6-02F70A249849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE8A29F-5EEF-4C6A-9BC6-02F70A249849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE8A29F-5EEF-4C6A-9BC6-02F70A249849}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
