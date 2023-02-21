@@ -58,9 +58,9 @@ namespace Cashback.Application.Services
 
             if (alreadyIndicateds.Count > 0)
                 return BaseDtoExtension.Create(200, $"NÃO FOI POSSIVEL INDICAR {alreadyIndicateds.Count} " +
-                    $"PESSOAS POIS JÁ FORAM INDICADOS, E VOCÊ INDICOU {indicatesNumber} PESSOAS");
+                    $"PESSOAS POIS JÁ FORAM INDICADOS, E VOCÊ INDICOU {indicatesNumber} PESSOAS", false);
 
-            return BaseDtoExtension.Create(200, $"{indicatesNumber} PESSOAS FORAM INDICADOS(A) COM SUCESSO");
+            return BaseDtoExtension.Create(200, $"{indicatesNumber} PESSOAS FORAM INDICADOS(A) COM SUCESSO", true);
         }
     }
 }

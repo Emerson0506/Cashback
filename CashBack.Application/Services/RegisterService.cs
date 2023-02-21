@@ -15,9 +15,13 @@ namespace Cashback.Application.Services
     public class RegisterService
     {
         private readonly IBaseRepository<UserEntity> _userRepository;
-        public RegisterService(IBaseRepository<UserEntity> userRepository)
+        private readonly IBaseRepository<ClientEntity> _indicatedRepository;
+        private readonly ProcedimentService _procedimentService;
+        public RegisterService(IBaseRepository<UserEntity> userRepository, IBaseRepository<ClientEntity> indicatedRepository)
         {
             _userRepository = userRepository;
+            _procedimentService = new(_userRepository);
+            _indicatedRepository = indicatedRepository;
         }
 
         /// <summary>
@@ -68,6 +72,11 @@ namespace Cashback.Application.Services
         /// <returns>Retorna <see cref="BaseDto"/> em caso de sucesso ou falha.</returns>
         public BaseDto Client(string name, string phoneNumber, string cpf, UserEntity user)
         {
+            var isExistentClient = user.Clients.Exists(x => x.CPF == cpf);
+
+            if (isExistentClient)
+                return BaseDtoExtension.Create(406, "Cliente já cadastrado", false);
+
             if (string.IsNullOrEmpty(name))
                 return BaseDtoExtension.InvalidValue("Nome Inválido");
 
@@ -110,6 +119,22 @@ namespace Cashback.Application.Services
 
             }
             return BaseDtoExtension.Sucess($"Cliente {indicated.Name} cadastrado e dado crédito a {indicatorName}");
+        }
+        public BaseDto ClientWithProcediment(IProcediment procediment, UserEntity user)
+        {
+            var registerClient = Client(procediment.NamePacient, procediment.PhoneNumber, procediment.CPFClient, user);
+
+            if (!registerClient._Condition)
+                return BaseDtoExtension.InvalidValue(registerClient._Message);
+
+            var procedimentResult = _procedimentService.Register(procediment, user);
+
+            if (!procedimentResult._Condition)
+                return BaseDtoExtension.InvalidValue(registerClient._Message);
+
+            procediment.Client.Account.Balance += 20;
+
+            return BaseDtoExtension.Sucess($"Cliente {procediment.Client.Name} e procedimento {procediment.Name} cadastros");
         }
     }
 }

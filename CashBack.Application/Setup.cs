@@ -21,8 +21,6 @@ namespace Cashback.Application
             services.AddTransient<IProvide, Provider>();
 
             services.AddTransient<IBaseRepository<UserEntity>, UserRepository>();
-            services.AddTransient<IBaseRepository<ClientEntity>, ClientRepository>();
-            services.AddTransient<IBaseRepository<IndicatedEntity>, IndicatedRepository>();
             services.AddTransient<ILogin, LoginService>();
             services.AddTransient<RegisterService>();
 
