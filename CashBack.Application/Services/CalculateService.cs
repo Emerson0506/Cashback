@@ -1,8 +1,8 @@
 ﻿namespace Cashback.Application.Services
 {
-    internal class CalculateService
+    public class CalculateService
     {
-        private static int _percentual { get; set; } = 2;
+        private static decimal _percentual { get; set; } = 2;
 
         public static decimal CalculateCashback(decimal value) => value * (_percentual / 100);
     }

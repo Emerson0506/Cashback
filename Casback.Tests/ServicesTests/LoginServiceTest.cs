@@ -4,7 +4,7 @@ using Cashback.Domain.Entities;
 using Cashback.Repository.Interfaces;
 using Moq;
 
-namespace Casback.Tests
+namespace Casback.Tests.ServicesTests
 {
     public class LoginServiceTest
     {
